@@ -4,7 +4,9 @@ import useAxiosSecure from "../../Hooks/useAxiosSecure";
 import useUser from "../../Hooks/useUser";
 import { Navigate, useNavigate } from "react-router-dom";
 const CheckOut = ({ itemId, price }) => {
-  const URL = `http://localhost:5000/payment?${itemId && `classId=${itemId}`}`;
+  const URL = `https://mern-yoga-master.onrender.com/payment?${
+    itemId && `classId=${itemId}`
+  }`;
   const element = useElements();
   const stripe = useStripe();
   const navigate = useNavigate();
@@ -27,13 +29,13 @@ const CheckOut = ({ itemId, price }) => {
     }
     axiosSecure
       .post(`payment/create-intent`, { price: price })
-      .then(res => {
+      .then((res) => {
         setClientSecret(res.data.clientSecret);
       })
-      .catch(error => console.log(`payment post ${error}`));
+      .catch((error) => console.log(`payment post ${error}`));
   }, []);
   // -----HandleSubmit------
-  const handleSubmit = async e => {
+  const handleSubmit = async (e) => {
     setMessage("");
     e.preventDefault();
     if (!stripe || !element) {
@@ -93,8 +95,8 @@ const CheckOut = ({ itemId, price }) => {
         },
         body: JSON.stringify(Data),
       })
-        .then(res => res.json())
-        .then(data => {
+        .then((res) => res.json())
+        .then((data) => {
           if (data) {
             setSucced("Payment SuccesFull,You Can Now Access Your Classes");
             navigate(`/dashboard/enrolled-classes`);
@@ -102,7 +104,7 @@ const CheckOut = ({ itemId, price }) => {
             setSucced("Paymeny Failed,....Please Try Again");
           }
         })
-        .catch(err => console.log(`Payment clear ${err}`));
+        .catch((err) => console.log(`Payment clear ${err}`));
     }
   };
 
@@ -110,11 +112,11 @@ const CheckOut = ({ itemId, price }) => {
   useEffect(() => {
     axiosSecure
       .get(`/cart/${currentUser?.email}`)
-      .then(res => {
-        const classesId = res?.data?.map(item => item._id);
+      .then((res) => {
+        const classesId = res?.data?.map((item) => item._id);
         setCart(classesId);
       })
-      .then(error => console.log(`payment ${error}`));
+      .then((error) => console.log(`payment ${error}`));
   }, []);
   return (
     <div>

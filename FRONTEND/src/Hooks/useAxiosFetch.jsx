@@ -3,7 +3,7 @@ import axios from "axios";
 
 const useAxiosFetch = () => {
   const axiosPublic = axios.create({
-    baseURL: "http://localhost:5000/",
+    baseURL: "https://mern-yoga-master.onrender.com/",
   });
   useEffect(() => {
     const requestInterceptors = axiosPublic.interceptors.request.use(
@@ -23,7 +23,7 @@ const useAxiosFetch = () => {
       function (response) {
         return response;
       },
-      async error => {
+      async (error) => {
         const status = error.response.status;
         if (status === 401 || status === 403) {
           await logOut();

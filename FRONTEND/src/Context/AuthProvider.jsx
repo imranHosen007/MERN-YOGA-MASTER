@@ -73,7 +73,7 @@ const AuthProvider = ({ children }) => {
       setUser(user);
       if (user) {
         axios
-          .post(`http://localhost:5000/jwt`, {
+          .post(`https://mern-yoga-master.onrender.com/jwt`, {
             email: user.email,
             name: user.displayName,
           })

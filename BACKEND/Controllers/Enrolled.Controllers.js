@@ -1,6 +1,6 @@
+import Classes from "../Models/Classes.model.js";
 import Enroll from "../Models/Enrolled.model.js";
 import User from "../Models/User.Model.js";
-import Classes from "../Models/Classes.model.js";
 
 // -------Popular-Enrolled-------
 

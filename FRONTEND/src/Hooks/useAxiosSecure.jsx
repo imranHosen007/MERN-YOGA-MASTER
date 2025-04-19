@@ -8,7 +8,7 @@ const useAxiosSecure = () => {
   const token = localStorage.getItem("token");
   const navigate = useNavigate();
   const axiosSecure = axios.create({
-    baseURL: "http://localhost:5000/",
+    baseURL: "https://mern-yoga-master.onrender.com/",
   });
   useEffect(() => {
     const requestInterceptors = axiosSecure.interceptors.request.use(
@@ -30,7 +30,7 @@ const useAxiosSecure = () => {
       function (response) {
         return response;
       },
-      async error => {
+      async (error) => {
         const status = error.response.status;
         if (status === 401 || status === 403) {
           await logout();

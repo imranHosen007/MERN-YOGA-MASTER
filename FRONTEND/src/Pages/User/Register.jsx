@@ -49,7 +49,7 @@ const Register = () => {
               };
               if (user?.email && user?.displayName) {
                 return axios
-                  .post(`http://localhost:5000/user`, userInfo)
+                  .post(`https://mern-yoga-master.onrender.com/user`, userInfo)
                   .then((finalUser) => {
                     navigate("/");
                     setButtonLoading(false);

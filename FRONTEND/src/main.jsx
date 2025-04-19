@@ -47,7 +47,7 @@ const router = createBrowserRouter([
         path: "/classes/:id",
         element: <SingleClasses />,
         loader: ({ params }) =>
-          fetch(`http://localhost:5000/classes/${params.id}`),
+          fetch(`https://mern-yoga-master.onrender.com/classes/${params.id}`),
       },
     ],
   },
@@ -113,7 +113,7 @@ const router = createBrowserRouter([
         path: "update/:id",
         element: <UpdateClasses />,
         loader: ({ params }) =>
-          fetch(`http://localhost:5000/classes/${params.id}`),
+          fetch(`https://mern-yoga-master.onrender.com/classes/${params.id}`),
       },
       // -------Admin-Routes------
       {
@@ -132,7 +132,7 @@ const router = createBrowserRouter([
         path: "update-user/:id",
         element: <UpdateUser />,
         loader: ({ params }) =>
-          fetch(`http://localhost:5000/user/${params.id}`),
+          fetch(`https://mern-yoga-master.onrender.com/user/${params.id}`),
       },
     ],
   },

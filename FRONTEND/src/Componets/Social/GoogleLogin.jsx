@@ -9,7 +9,7 @@ const GoogleLogin = () => {
   const { googleLogin, user } = useAuth();
   const handleSumbit = () => {
     googleLogin()
-      .then(currentUser => {
+      .then((currentUser) => {
         const user = currentUser.user;
         if (user) {
           const userInfo = {
@@ -23,20 +23,20 @@ const GoogleLogin = () => {
           };
           if (user.displayName && user.email) {
             return axios
-              .post(`http://localhost:5000/user`, userInfo)
-              .then(res => {
+              .post(`https://mern-yoga-master.onrender.com/user`, userInfo)
+              .then((res) => {
                 console.log(res);
                 alert(`Account Creation SuccesFull`);
                 return navigate("/dashboard");
               })
-              .catch(error => {
+              .catch((error) => {
                 console.log(`User Data Post ${error}`);
                 navigate("/");
               });
           }
         }
       })
-      .catch(error => console.log(`GoogleLogin In ${error}`));
+      .catch((error) => console.log(`GoogleLogin In ${error}`));
   };
   return (
     <div className="flex items-center justify-center my-3">

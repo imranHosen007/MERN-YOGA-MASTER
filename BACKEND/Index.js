@@ -10,7 +10,7 @@ config({
 });
 
 const corsOptions = {
-  origin: [`http://localhost:5173`, "https://eshop-eight-ochre.vercel.app"],
+  origin: [`http://localhost:5173`, "https://mern-yoga-master.vercel.app"],
 
   optionSuccessStatus: 200,
 };
